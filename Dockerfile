@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-bullseye
 
 # Build dependencies
 RUN apt-get update -y \
@@ -15,4 +15,4 @@ ENV DEFAULT_ARTIFACT_ROOT="/opt/artifact"
 # Port
 EXPOSE 80
 
-CMD mlflow server --host 0.0.0.0 --port 80 --backend-store-uri $BACKEND_STORE_URI --default-artifact-root $DEFAULT_ARTIFACT_ROOT
+CMD mlflow server --host 0.0.0.0 --port 80 --backend-store-uri $BACKEND_STORE_URI --artifacts-destination $DEFAULT_ARTIFACT_ROOT --serve-artifacts
