@@ -22,8 +22,7 @@ ARG mlflow_version
 
 # install system build dependencies
 RUN apt-get update -y \
-    && apt-get install -y --no-install-recommends \
-        build-essential libpq-dev
+    && apt-get install -y --no-install-recommends build-essential
 
 # install Python runtime dependencies
 COPY ./requirements.txt .
